@@ -15,6 +15,8 @@ lazy val root = (project in file(".")).
     libraryDependencies ++= circe,
     retrieveManaged := true,
     s3Bucket := Some("scala-aws-lambda"),
+    awsLambdaMemory := Some(192),
+    awsLambdaTimeout := Some(30),
     lambdaHandlers += "post" -> "com.dbrsn.lambda.Main::post"
   )
   .enablePlugins(AwsLambdaPlugin)

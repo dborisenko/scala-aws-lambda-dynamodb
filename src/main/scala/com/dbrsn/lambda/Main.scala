@@ -38,7 +38,7 @@ object PersistedOrder {
   final type OrderId = String
 }
 
-object Main {
+class Main {
   // Initializing DynamoDB client
   lazy val client: AmazonDynamoDB = AmazonDynamoDBClientBuilder.standard().withRegion(Regions.US_EAST_1).build()
   lazy val dynamoDb: DynamoDB = new DynamoDB(client)
@@ -78,7 +78,10 @@ object Main {
     }
 
     // Throw exception if it happened or write output order in json format otherwise
-    persisted.map(_.asJson).fold(throw _, json => IOUtils.write(json.noSpaces, output, encoding))
+    persisted.map(_.asJson).fold(throw _, json => {
+      IOUtils.write(json.noSpaces, output, encoding)
+      output.flush()
+    })
   }
 
 }
