@@ -1,4 +1,4 @@
-# Example from my [blog](http://dbrsn.com/2017-06-18-how-to-build-scala-tiny-backend-on-amazon-aws-lambda/)
+# [How to build Scala tiny backend on Amazon AWS Lambda](http://dbrsn.com/2017-06-18-how-to-build-scala-tiny-backend-on-amazon-aws-lambda/)
 
 We are going to create a simple application, which posts and gets provided to lambda set of numbers.
 
